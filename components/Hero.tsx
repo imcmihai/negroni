@@ -91,10 +91,10 @@ export default function Hero() {
           <Star className="h-3 w-3" />
         </p> */}
 
-        {/* giant wordmark — letters clip-reveal from below */}
+        {/* giant wordmark — letters clip-reveal from below, blended onto the photo */}
         <h1
           data-title
-          className="display relative z-10 select-none overflow-hidden text-center text-[19.5vw] leading-[0.82] text-ink"
+          className="display relative z-10 mix-blend-difference select-none overflow-hidden text-center text-[19.5vw] leading-[0.82] text-cream"
           aria-label="Negroni"
         >
           {TITLE.split("").map((ch, i) => (
@@ -104,14 +104,14 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* hero glass — sits ON the type, parallaxes slower */}
+        {/* hero glass — sits under the type, parallaxes slower */}
         <div
           data-glass
-          className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[34vw] -translate-x-1/2 -translate-y-[54%] md:w-[21vw]"
+          className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[42vw] -translate-x-1/2 -translate-y-[54%] md:w-[27vw]"
         >
           <div className="float-idle">
             <img
-            className="aspect-[3/4] z-1"
+            className="aspect-[3/4] z-1 w-full"
              src="images/hero.png"
             />
           </div>
