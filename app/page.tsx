@@ -17,7 +17,9 @@ export default function Home() {
       <SmoothScroll />
       <Preloader />
       <Nav />
-      <main>
+      {/* main sits above the fixed footer layer — scrolling past the end
+          lifts it like a curtain, revealing the footer underneath */}
+      <main className="relative z-10 bg-cream shadow-[0_30px_60px_rgba(7,6,13,0.35)]">
         <Hero />
         <Manifesto />
         <OnTap />

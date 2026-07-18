@@ -8,15 +8,11 @@ const WORDS = ["APERITIVO", "BITTERSWEET", "NEGRONIED"];
 /** Red curtain intro — cycles brand words, then lifts. Runs once per session. */
 export default function Preloader() {
   const [gone, setGone] = useState(false);
-  const [skip] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      sessionStorage.getItem("negroni-intro") === "done"
-  );
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (skip) {
+    /* checked in an effect (not render) to keep SSR/client markup identical */
+    if (sessionStorage.getItem("negroni-intro") === "done") {
       setGone(true);
       return;
     }
@@ -52,7 +48,7 @@ export default function Preloader() {
       tl.kill();
       document.documentElement.style.overflow = "";
     };
-  }, [skip]);
+  }, []);
 
   if (gone) return null;
 
