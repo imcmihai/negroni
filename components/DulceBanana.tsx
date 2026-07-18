@@ -45,7 +45,7 @@ export default function DulceBanana() {
   return (
     <section
       ref={root}
-      className="relative overflow-hidden bg-ink px-4 py-28 text-cream md:px-10 md:py-40"
+      className="relative overflow-hidden bg-cream px-4 py-28 text-ink md:px-10 md:py-40"
     >
       {/* giant ghost type behind */}
       <span
@@ -55,13 +55,13 @@ export default function DulceBanana() {
         D&amp;B
       </span>
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 md:grid-cols-2">
         <div>
           <p data-reveal className="serif-it text-3xl text-red md:text-4xl">
             Liquid luxury,
           </p>
           <h2 data-reveal className="display mt-2 text-[clamp(2.8rem,7vw,6rem)]">
-            Dulce &amp;<br />Banana
+            Dulce Banana
           </h2>
           <p data-reveal className="mt-8 max-w-md text-[15px] leading-relaxed opacity-85">
             {D.copy}
@@ -75,21 +75,25 @@ export default function DulceBanana() {
                 {chip}
               </span>
             ))}
-            <span className="display rounded-full bg-red px-5 py-2 text-2xl">
+            <span className="display rounded-full bg-red text-cream px-5 py-2 text-2xl">
               {D.price} lei
             </span>
           </div>
         </div>
 
         <div data-banana className="relative mx-auto w-full max-w-sm">
-          <Placeholder
+          {/* <Placeholder
             tone="ink"
             className="aspect-[3/4] w-full"
             desc={D.imgDesc}
+          /> */}
+          <img
+            className="aspect-[3/4] w-full"
+            src={D.src}
           />
           {/* sticker: replace with round 'Pomo Negroni'-style sticker sheet asset */}
           <div className="absolute -right-6 -top-6 grid h-24 w-24 rotate-12 place-items-center rounded-full bg-red text-center">
-            <span className="display text-sm leading-tight">
+            <span className="display text-sm text-cream leading-tight">
               very
               <br />
               dulce

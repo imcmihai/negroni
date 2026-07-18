@@ -8,6 +8,7 @@ export type Cocktail = {
   notes: string;
   ingredients: string;
   imgDesc: string;
+  src: string;
 };
 
 export const TAP_COCKTAILS: Cocktail[] = [
@@ -20,6 +21,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Gin Negroni, Bitter Negroni, Vermut Roșu Dulce, Portocale",
     imgDesc:
       "Cut-out photo: classic Negroni in a rocks glass, one huge clear ice cube, orange wheel — shot top-down on red background like the IG jar shots",
+    src: "/images/hands-clicking.png"
   },
   {
     name: "Passiocletta",
@@ -31,6 +33,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Eleven, Bitter OLD 1919, Chinola Passion Fruit, Spumante, Apă de trandafiri",
     imgDesc:
       "Cut-out photo: tall sparkling orange cocktail with dried orange wheel garnish, condensation drops",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Sbagliato",
@@ -41,6 +44,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Bitter Negroni, Vermut Roșu Dulce, San Martino Spumante, Măsline",
     imgDesc:
       "Cut-out photo: sbagliato in a stemmed glass with a skewer of green olives resting on the rim",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Milanese G&T",
@@ -51,6 +55,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Gin Negroni, Bitter Negroni, Apă Tonică Bona, Lime",
     imgDesc:
       "Cut-out photo: pink-red G&T in a highball, lime wedge, big bubbles visible",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Rosita",
@@ -61,6 +66,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Tequila Orendain Blanco, Bitter's mix, Vermut Roșu Dulce, Lime",
     imgDesc:
       "Cut-out photo: amber-red rosita over ice with dehydrated lime wheel",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Mi-To",
@@ -72,6 +78,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter Negroni, Vermut Roșu Dulce, Bitter Fusetti Mare, Vermut Bucci Rosso",
     imgDesc:
       "Cut-out photo: short dark-red Mi-To in a lowball, no garnish, moody light",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Americano",
@@ -83,6 +90,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter Negroni, Vermut Roșu Dulce, Fusetti Mare, Apă de trandafiri & lămâie, Portocale",
     imgDesc:
       "Cut-out photo: americano highball with soda fizz and orange slice inside the glass",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Venetian Spritz",
@@ -93,6 +101,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Aperitiv Eleven, Montelvini Cuvee Spumante, Măsline",
     imgDesc:
       "Cut-out photo: bright orange spritz in a big wine glass, olive skewer, golden-hour light",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Negroni Spritz",
@@ -104,6 +113,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter's mix, Aperitiv Eleven, Montelvini Cuvee, Apă Tonică Bona, Portocale",
     imgDesc:
       "Cut-out photo: red spritz in a stemmed balloon glass with orange half-moon",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Veneto Spritz",
@@ -115,6 +125,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Sixteen, Montelvini Cuvee, Apă de trandafiri, Portocală uscată",
     imgDesc:
       "Cut-out photo: deep-orange spritz with dried orange chip standing in the foam",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Hugo",
@@ -126,6 +137,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Sambuco, Suc de lime, Montelvini Cuvee, Mentă, Lime",
     imgDesc:
       "Cut-out photo: pale green-white Hugo loaded with mint sprigs and lime wheels",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Limoncello Spritz",
@@ -137,6 +149,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Limoncello Negroni, Aperitiv Sambuco, Suc de lime, Montelvini Cuvee, Apă spumante",
     imgDesc:
       "Cut-out photo: cloudy yellow limoncello spritz with a fat lemon twist over the rim",
+      src: "/images/hands-clicking.png"
   },
 ];
 
@@ -147,6 +160,7 @@ export type Signature = {
   price: number;
   notes: string;
   imgDesc: string;
+  src: string;
 };
 
 export const SIGNATURES: Signature[] = [
@@ -158,6 +172,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Pineapple foam, raspberry dust — the Negroni goes on holiday",
     imgDesc:
       "Photo: tiki negroni crowned with white pineapple foam and red raspberry powder, tropical props blurred behind",
+      src: "/images/upclose-cocktail.png"
   },
   {
     name: "Porno Negroni",
@@ -167,6 +182,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Two gins, passion fruit, shimmer of candurin — explicit content",
     imgDesc:
       "Photo: glittering shimmering red negroni (candurin swirl visible), shot macro, dark background",
+      src: "/images/hands-clicking.png"
   },
   {
     name: "Negroni Supremo",
@@ -176,6 +192,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Eight bottles deep. One cherry on top. The boss",
     imgDesc:
       "Photo: dark garnet negroni in crystal lowball with single glossy cherry, dramatic side light",
+      src: "/images/upclose-cocktail.png"
   },
   {
     name: "Drinkita",
@@ -185,6 +202,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Mezcal, mango, La Gauloise — smoky sunshine with a kick",
     imgDesc:
       "Photo: golden-yellow drinkita with mango slice fan and chili-salt rim, halftone collage treatment like the DRINKITA event poster",
+            src: "/images/hands-clicking.png"
   },
   {
     name: "Vișinată Cola",
@@ -194,6 +212,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Grandma's vișinată meets cola, tonka & vanilla foam",
     imgDesc:
       "Photo: dark cherry-cola drink in a tall glass, vanilla foam layer, sour cherries on skewer",
+      src: "/images/upclose-cocktail.png"
   },
   {
     name: "Sunset Spritz",
@@ -203,6 +222,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Bergamot, Cynar, peach & grapefruit — golden hour in a glass",
     imgDesc:
       "Photo: gradient orange-pink spritz backlit by sunset, like the SUNSET SPRITZ event artwork",
+            src: "/images/hands-clicking.png"
   },
 ];
 
@@ -215,6 +235,8 @@ export const DULCE_BANANA = {
     "We call it a statement piece. Creamy banana, boozy coconut, and a layered rum backbone. Rich, fruity, unapologetically luxurious. The real twist? It comes dressed as a banana flask you take with you — part cocktail, part accessory. Very ‘Dulce Vita’.",
   imgDesc:
     "Cut-out photo: the actual banana-shaped flask cocktail vessel, studio-lit on ink-black background, slight glossy reflection",
+    src: "/images/hands-clicking.png"
+    
 };
 
 export const EVENTS = [

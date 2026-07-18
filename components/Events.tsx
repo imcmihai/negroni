@@ -28,8 +28,8 @@ export default function Events() {
 
   return (
     <section ref={root} id="events" className="bg-cream px-4 py-24 md:px-10 md:py-32">
-      <p className="eyebrow mb-3 text-red">A bit of agenda</p>
-      <h2 className="display max-w-3xl text-[clamp(2.6rem,7.5vw,6.5rem)]">
+      {/* <p className="eyebrow mb-3 text-red">A bit of agenda</p> */}
+      <h2 className="display text-center w-full text-[clamp(3.6rem,7.5vw,6.5rem)]">
         More than <span className="serif-it text-red normal-case">a</span> bar
       </h2>
 

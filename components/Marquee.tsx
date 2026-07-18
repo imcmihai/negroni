@@ -30,7 +30,7 @@ export default function Marquee({
   );
 
   return (
-    <div className={`marquee ${className}`}>
+    <div className={`marquee ${className} z-40`}>
       {track(false)}
       {track(true)}
     </div>

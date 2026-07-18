@@ -118,7 +118,7 @@ export default function Hero() {
             <img
              
               className="aspect-[3/4] w-full "
-             src="/hero.png"
+             src="images/hero.png"
             />
           </div>
         </div>

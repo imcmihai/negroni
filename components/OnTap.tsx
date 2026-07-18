@@ -66,7 +66,7 @@ export default function OnTap() {
   }, []);
 
   return (
-    <section ref={root} id="menu" className="relative overflow-hidden bg-red text-cream">
+    <section ref={root} id="menu" className="relative overflow-hidden bg-cream text-black">
       <div className="flex min-h-svh flex-col justify-center py-16">
         {/* header */}
         <div className="px-4 md:px-10">
@@ -87,7 +87,7 @@ export default function OnTap() {
               <article
                 key={c.name}
                 data-car
-                className="group relative flex w-[76vw] shrink-0 flex-col border border-cream/40 bg-red p-5 transition-colors duration-500 hover:bg-cream hover:text-red sm:w-[340px]"
+                className="group relative flex w-[76vw] shrink-0 flex-col border border-cream/40 bg-cream border-red text-cream p-5 transition-colors duration-500 bg-cream text-red sm:w-[340px]"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <span className="font-mono text-xs opacity-70">
@@ -98,10 +98,14 @@ export default function OnTap() {
                   </span>
                 </div>
 
-                <Placeholder
+                {/* <Placeholder
                   tone="ink"
                   className="mb-5 aspect-[4/5] w-full border-current bg-transparent text-current"
                   desc={c.imgDesc}
+                /> */}
+                     <img
+                  className="mb-5 aspect-[4/5] w-full border-current bg-transparent text-current"
+                  src={c.src}
                 />
 
                 <h3 className="display text-3xl">{c.name}</h3>
@@ -124,7 +128,7 @@ export default function OnTap() {
             {/* caboose card → aperitivo train teaser */}
             <a
               href="#train"
-              className="group relative flex w-[76vw] shrink-0 flex-col items-start justify-center gap-4 border border-cream/40 bg-ink p-8 text-cream transition-colors duration-500 hover:bg-cream hover:text-ink sm:w-[340px]"
+              className="group relative flex w-[76vw] shrink-0 flex-col items-start justify-center gap-4 border border-cream/40 bg-ink p-8 text-cream transition-colors duration-500 bg-red text-cream sm:w-[340px]"
             >
               <p className="eyebrow text-red">Psst, amici</p>
               <p className="display text-4xl leading-none">
@@ -139,9 +143,9 @@ export default function OnTap() {
 
         {/* progress rail + running train */}
         <div className="mt-8 hidden px-4 md:block md:px-10">
-          <div ref={bar} className="relative border-t-2 border-dashed border-cream/50 pt-2">
+          <div ref={bar} className="relative border-t-2 border-dashed border-ink/50 pt-2">
             <div ref={train} className="absolute -top-[13px] left-0">
-              <TrainIcon className="h-6 w-auto text-cream" />
+              <TrainIcon className="h-6 w-auto text-ink" />
             </div>
           </div>
           <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] opacity-60">

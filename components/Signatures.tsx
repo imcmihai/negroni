@@ -56,8 +56,8 @@ export default function Signatures() {
   return (
     <section ref={root} id="signatures" className="relative bg-cream py-24 md:py-32">
       <div className="px-4 md:px-10">
-        <p className="eyebrow mb-3 text-red">Signatures &amp; twists</p>
-        <h2 className="display text-[clamp(2.6rem,7.5vw,6.5rem)]">
+        {/* <p className="eyebrow mb-3 text-red ">Signatures &amp; twists</p> */}
+        <h2 className="display text-[clamp(2.6rem,7.5vw,6.5rem)] w-full text-center">
           The Negronied <span className="serif-it text-red normal-case">way</span>
         </h2>
       </div>
@@ -99,10 +99,14 @@ export default function Signatures() {
         aria-hidden
       >
         {active !== null && (
-          <Placeholder
-            tone="red"
-            className="aspect-[3/4] w-full bg-cream shadow-2xl"
-            desc={SIGNATURES[active].imgDesc}
+          // <Placeholder
+          //   tone="red"
+          //   className="aspect-[3/4] w-full bg-cream shadow-2xl"
+          //   desc={SIGNATURES[active].imgDesc}
+          // />
+            <img
+            className="aspect-[3/4]"
+            src={SIGNATURES[active].src}
           />
         )}
       </div>

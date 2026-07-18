@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div >
       <SmoothScroll />
       <Preloader />
       <Nav />
@@ -25,11 +25,13 @@ export default function Home() {
         <OnTap />
         <TrainBanner />
         <Signatures />
-        <DulceBanana />
+        {/* <DulceBanana /> */}
         <Events />
         <Merch />
       </main>
       <Footer />
-    </>
+    </div>
+      
+  
   );
 }
