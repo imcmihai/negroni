@@ -247,6 +247,7 @@ export const EVENTS = [
       "Powered by Negroni Trading, the bar becomes a global playground for award-winning mixologists, brand ambassadors and cocktail visionaries. Masterclasses included.",
     imgDesc:
       "Halftone collage poster in brand style: black&white cutout portraits of two bartenders over red circles and orange drink, like the DRINKITA 22&23 MAY poster",
+      src: "/images/hands-clicking.png"
   },
   {
     tag: "Seasonly",
@@ -255,6 +256,7 @@ export const EVENTS = [
       "Closed-door parties soundtracked by the world's finest in dark disco, indie dance and post-punk. Cocktails, music and bittersweet community collide.",
     imgDesc:
       "Photo: packed bar at night, red neon 'NEGRONIED' sign glowing over the crowd, motion blur dancing",
+      src: "/images/hands-clicking.png"
   },
   {
     tag: "Members",
@@ -263,6 +265,7 @@ export const EVENTS = [
       "Our most devoted amici carry NEGRONI Passports — exclusive cocktail perks and access to the closed-door parties. Ask a manager how to apply for yours.",
     imgDesc:
       "Photo: burgundy 'PASSAPORTO' booklet with wax-sealed envelope and negroni glass on black croc leather, like the IG passport shot",
+      src: "/images/hands-clicking.png"
   },
 ];
 

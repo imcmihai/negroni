@@ -38,11 +38,11 @@ export default function Events() {
           <article
             key={ev.title}
             data-card
-            className={`group flex flex-col p-6 transition-transform duration-500 hover:-translate-y-2 ${
-              i === 1 ? "bg-ink text-cream" : "bg-red text-cream"
+            className={`group flex flex-col p-6 border border-red transition-transform duration-500 hover:-translate-y-2 ${
+              i === 1 ? "bg-cream text-red" : "bg-red text-cream"
             }`}
           >
-            <div className="mb-5 flex items-center justify-between">
+            <div className="mb-5 flex items-center justify-between ">
               <span className="rounded-full border border-cream/50 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.25em]">
                 {ev.tag}
               </span>
@@ -51,10 +51,14 @@ export default function Events() {
               <span className="halftone h-8 w-8 rounded-full opacity-60" />
             </div>
 
-            <Placeholder
+            {/* <Placeholder
               tone="ink"
               className="mb-6 aspect-[4/3] w-full border-cream/40 bg-transparent text-cream"
               desc={ev.imgDesc}
+            /> */}
+                        <img
+              className="mb-6 aspect-[4/3] w-full"
+              src={ev.src}
             />
 
             <h3 className="display text-3xl">{ev.title}</h3>
