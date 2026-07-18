@@ -85,11 +85,11 @@ export default function Hero() {
 
       <div className="relative flex flex-1 flex-col items-center justify-center px-4 pt-20 pb-10">
         {/* eyebrow */}
-        <p data-fade className="eyebrow mb-5 flex items-center gap-3 text-red">
+        {/* <p data-fade className="eyebrow mb-5 flex items-center gap-3 text-red">
           <Star className="h-3 w-3" />
           Aperitivo Bar · Bucharest
           <Star className="h-3 w-3" />
-        </p>
+        </p> */}
 
         {/* giant wordmark — letters clip-reveal from below */}
         <h1
@@ -107,17 +107,11 @@ export default function Hero() {
         {/* hero glass — sits ON the type, parallaxes slower */}
         <div
           data-glass
-          className="pointer-events-none absolute left-1/2 top-1/2 z-20 w-[34vw] -translate-x-1/2 -translate-y-[54%] md:w-[21vw]"
+          className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[34vw] -translate-x-1/2 -translate-y-[54%] md:w-[21vw]"
         >
           <div className="float-idle">
-            {/* <Placeholder
-              tone="red"
-              className="aspect-[3/4] w-full bg-cream shadow-[0_40px_80px_-30px_rgba(7,6,13,0.35)]"
-              desc="Cut-out hero shot: a Negroni rocks glass with one oversized clear ice cube and an orange wheel, photographed straight-on, transparent background — the drink floats over the giant NEGRONI wordmark"
-            /> */}
             <img
-             
-              className="aspect-[3/4] w-full "
+            className="aspect-[3/4] z-1"
              src="images/hero.png"
             />
           </div>
@@ -132,13 +126,13 @@ export default function Hero() {
         </p> */}
 
         {/* corner info — address */}
-        <div
+        {/* <div
           data-fade
           className="absolute bottom-8 left-4 hidden max-w-[220px] text-[11px] font-semibold uppercase leading-relaxed tracking-widest md:left-8 md:block"
         >
           <p>{INFO.address}</p>
           <p className="text-red">Open daily from 18:19</p>
-        </div>
+        </div> */}
 
         {/* corner info — rotating badge */}
         <div
