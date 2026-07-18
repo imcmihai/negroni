@@ -51,7 +51,7 @@ export default function Manifesto() {
           <p className="eyebrow mb-8 text-black">Welcome on the bittersweet board, amici</p>
           <p
             data-copy
-            className="display max-w-[30ch] text-[clamp(1.9rem,4.6vw,3.9rem)]"
+            className="display max-w-[30ch] text-[clamp(1.9rem,4.6vw,3.9rem)] leading-[1.35]!"
           >
             {TEXT.split(" ").map((w, i) => (
               <span key={i} data-word className="opacity-[0.14] text-black">

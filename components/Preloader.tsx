@@ -59,12 +59,12 @@ export default function Preloader() {
       aria-hidden
     >
       <div className="overflow-hidden py-2">
-        <div className="grid">
+        <div className="grid justify-items-center">
           {WORDS.map((w) => (
             <span
               key={w}
               data-word
-              className="display col-start-1 row-start-1 translate-y-[110%] text-[13vw] leading-none md:text-[8vw]"
+              className="display col-start-1 row-start-1 translate-y-[110%] whitespace-nowrap bg-red px-4 py-4 text-[13vw] w-full leading-none text-cream md:px-6 md:text-[8vw] text-center"
             >
               {w}
             </span>
