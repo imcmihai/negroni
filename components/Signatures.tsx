@@ -73,19 +73,28 @@ export default function Signatures() {
           >
             {/* red fill sweeping up */}
             <div className="absolute inset-0 origin-bottom scale-y-0 bg-red transition-transform duration-500 [transition-timing-function:cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100" />
-            <div className="relative z-10 grid items-baseline gap-x-6 gap-y-1 transition-colors duration-300 group-hover:text-cream md:grid-cols-[3rem_1fr_auto_auto]">
+            <div className="relative z-10 flex items-center gap-4 transition-colors duration-300 group-hover:text-cream md:grid md:items-baseline md:gap-x-6 md:gap-y-1 md:grid-cols-[3rem_1fr_auto_auto]">
               <span className="hidden font-mono text-xs opacity-60 md:block">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="display text-3xl md:text-5xl">{s.name}</h3>
-              <p className="text-[13px] italic opacity-70 md:max-w-xs md:text-right">
-                {s.notes}
-              </p>
-              <div className="flex items-baseline gap-4 md:w-40 md:justify-end">
-                <span className="font-mono text-xs opacity-60">
-                  {s.ml}ml · {s.abv}
-                </span>
-                <span className="display text-2xl">{s.price} lei</span>
+              <img
+                src={s.src}
+                alt={s.name}
+                className="aspect-[3/4] w-20 shrink-0 rounded-lg object-cover shadow-md md:hidden"
+              />
+              <div className="min-w-0 flex-1 md:contents">
+                <h3 className="display text-3xl md:text-5xl">{s.name}</h3>
+                <p className="mt-[5px] max-w-[10rem] text-[13px] italic opacity-70 md:mt-0 md:max-w-xs md:text-right">
+                  {s.notes}
+                </p>
+                <div className="flex items-baseline gap-4 md:w-40 md:justify-end">
+                  <span className="font-mono text-xs opacity-60">
+                    {s.ml}ml · {s.abv}
+                  </span>
+                  <span className="display absolute bottom-4 right-4 text-2xl md:static md:bottom-auto md:right-auto">
+                    {s.price} lei
+                  </span>
+                </div>
               </div>
             </div>
           </div>
