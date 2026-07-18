@@ -1,26 +1,205 @@
 @import "tailwindcss";
 
+/* ————— NEGRONI design tokens ————— */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --red: #eb2127;
+  --cream: #fef7ec;
+  --ink: #07060d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-red: #eb2127;
+  --color-cream: #fef7ec;
+  --color-ink: #07060d;
+  --font-display: "Anton", "Arial Narrow", "Impact", sans-serif;
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ————— base ————— */
+html {
+  scroll-behavior: auto; /* Lenis drives scrolling */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--cream);
+}
+
+/* thin red scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border: 2px solid var(--cream);
+  border-radius: 99px;
+}
+
+/* ————— display type helpers ————— */
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: 0.005em;
+  font-weight: 400;
+}
+
+.serif-it {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* outline (stroked) type — fills on hover when .fill-on-hover */
+.text-outline {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  .text-outline {
+    -webkit-text-stroke-width: 2px;
+  }
+}
+.fill-on-hover {
+  transition: color 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.fill-on-hover:hover {
+  color: currentColor;
+  -webkit-text-fill-color: initial;
+}
+
+/* ————— checkerboard motif ————— */
+.checker {
+  --sq: 14px;
+  --c1: var(--red);
+  --c2: var(--cream);
+  background-image: conic-gradient(
+    var(--c1) 90deg,
+    var(--c2) 90deg 180deg,
+    var(--c1) 180deg 270deg,
+    var(--c2) 270deg
+  );
+  background-size: calc(var(--sq) * 2) calc(var(--sq) * 2);
+}
+
+/* halftone dot texture */
+.halftone {
+  background-image: radial-gradient(currentColor 1px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+/* ————— button with vertical fill on hover ————— */
+.btn-fill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  cursor: pointer;
+  transition: color 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: var(--fill, var(--ink));
+  transform: translateY(101%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.btn-fill:hover::before {
+  transform: translateY(0%);
+}
+.btn-fill:hover {
+  color: var(--fill-text, var(--cream));
+}
+
+/* ————— marquee ————— */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-width: 100%;
+  animation: marquee var(--marquee-speed, 28s) linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* slow rotation (badges) */
+.spin-slow {
+  animation: spin 18s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* gentle float (real-object idle motion) */
+.float-idle {
+  animation: floatidle 5s ease-in-out infinite;
+}
+@keyframes floatidle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+/* ticket perforation edge */
+.ticket-notch {
+  --notch: 14px;
+  mask: radial-gradient(
+        circle at left center,
+        transparent var(--notch),
+        black calc(var(--notch) + 0.5px)
+      )
+      left / 51% 100% no-repeat,
+    radial-gradient(
+        circle at right center,
+        transparent var(--notch),
+        black calc(var(--notch) + 0.5px)
+      )
+      right / 51% 100% no-repeat;
+}
+
+/* ————— reduced motion ————— */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .spin-slow,
+  .float-idle {
+    animation: none;
+  }
 }
