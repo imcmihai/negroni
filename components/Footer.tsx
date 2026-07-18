@@ -64,7 +64,7 @@ export default function Footer() {
       /* giant letters rise one by one as the reveal progresses */
       gsap.fromTo(
         "[data-giant-letter]",
-        { yPercent: 60 },
+        { yPercent: 70 },
         { yPercent: 0, ease: "power1.out", stagger: 0.05, scrollTrigger: st }
       );
 
@@ -96,8 +96,8 @@ export default function Footer() {
   return (
     <footer id="visit-footer" aria-label="Footer">
       {/* ——— fixed layer under the site ——— */}
-      <div ref={fixedRef} className="fixed bottom-0 left-0 z-0 w-full bg-cream text-ink">
-        <div ref={innerRef} className="flex min-h-svh flex-col justify-between">
+      <div ref={fixedRef} className="fixed bottom-0 left-0 z-0 w-full bg-red text-ink">
+        <div ref={innerRef} className="flex min-h-svh flex-col justify-between bg-cream">
           {/* top: address + hours + link clouds */}
           <div className="grid gap-10 px-4 pt-16 md:grid-cols-[1fr_auto_auto] md:gap-16 md:px-10 md:pt-20">
             <div>
@@ -160,7 +160,7 @@ export default function Footer() {
           {/* bottom: the massive wordmark, edge to edge */}
           <div className="mt-14">
             <div
-              className="display select-none overflow-hidden whitespace-nowrap px-1 text-center text-[19.7vw] leading-[0.78] tracking-[-0.01em]"
+              className="display select-none overflow-hidden whitespace-nowrap px-1 text-center text-[29.7vw] leading-[0.78] tracking-[-0.01em]"
               aria-hidden
             >
               {GIANT.split("").map((ch, i) => (
