@@ -27,17 +27,17 @@ export default function Merch() {
   }, []);
 
   return (
-    <section ref={root} id="merch" className="overflow-hidden bg-ink py-24 text-cream md:py-32">
+    <section ref={root} id="merch" className="overflow-hidden bg-cream py-24 text-ink md:py-32">
       <div className="px-4 md:px-10">
         <p className="eyebrow mb-3 text-red">Merch — wear your Negroni</p>
 
-        {/* slogans as oversized outline type, filling on hover */}
+        {/* slogans as oversized outline type, filling red on hover — stroke stays visible against the cream bg either way */}
         <div data-slogans>
           {SLOGANS.map((s) => (
             <p
               key={s}
               data-slogan
-              className="display text-outline fill-on-hover w-fit cursor-default text-[clamp(1.8rem,5.4vw,4.6rem)] text-cream hover:text-red"
+              className="display text-outline fill-on-hover w-fit cursor-default text-[clamp(1.8rem,5.4vw,4.6rem)] text-ink hover:text-red"
             >
               {s}
             </p>
@@ -47,7 +47,7 @@ export default function Merch() {
 
       {/* product marquee */}
       <Marquee
-        className="mt-16 border-y border-cream/15 py-6"
+        className="mt-16 border-y border-ink/15 py-6"
         speed="45s"
         separator={<span className="mx-3" />}
         items={MERCH.map((m) => (

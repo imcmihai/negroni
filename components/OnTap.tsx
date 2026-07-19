@@ -98,11 +98,6 @@ export default function OnTap() {
                   </span>
                 </div>
 
-                {/* <Placeholder
-                  tone="ink"
-                  className="mb-5 aspect-[4/5] w-full border-current bg-transparent text-current"
-                  desc={c.imgDesc}
-                /> */}
                      <img
                   className="mb-5 aspect-[4/5] w-full border-current bg-transparent text-current"
                   src={c.src}
@@ -142,16 +137,16 @@ export default function OnTap() {
         </div>
 
         {/* progress rail + running train */}
-        <div className="mt-8 hidden px-4 md:block md:px-10">
+        {/* <div className="mt-8 hidden px-4 md:block md:px-10">
           <div ref={bar} className="relative border-t-2 border-dashed border-ink/50 pt-2">
-            <div ref={train} className="absolute -top-[13px] left-0">
+            <div ref={train} className="absolute -top-[43px] left-0">
               <TrainIcon className="h-6 w-auto text-ink" />
             </div>
           </div>
           <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] opacity-60">
             Keep scrolling — the train is moving
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -160,16 +155,8 @@ export default function OnTap() {
 /** Minimal loco + two cars. Replace with a custom illustrated brand train if available. */
 export function TrainIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 96 24" fill="currentColor" className={className} aria-hidden>
-      <rect x="0" y="4" width="26" height="12" rx="2" />
-      <rect x="30" y="4" width="26" height="12" rx="2" />
-      <path d="M60 16V6a2 2 0 0 1 2-2h20l10 8v4z" />
-      <circle cx="7" cy="20" r="3" />
-      <circle cx="19" cy="20" r="3" />
-      <circle cx="37" cy="20" r="3" />
-      <circle cx="49" cy="20" r="3" />
-      <circle cx="67" cy="20" r="3" />
-      <circle cx="83" cy="20" r="3" />
-    </svg>
+
+    <img src="/images/negroni-train.png" className="h-[7rem]">
+</img>
   );
 }

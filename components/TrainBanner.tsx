@@ -84,7 +84,7 @@ export default function TrainBanner() {
       className="relative overflow-hidden bg-cream px-4 py-24 md:py-36"
     >
       {/* the train crossing behind the ticket, on a dashed rail */}
-      <div className="pointer-events-none absolute left-0 top-14 w-full">
+      <div className="pointer-events-none absolute left-0 top-0 w-full">
         <div data-train className="w-max">
           <TrainIcon className="h-10 w-auto text-ink md:h-14" />
         </div>

@@ -21,7 +21,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Gin Negroni, Bitter Negroni, Vermut Roșu Dulce, Portocale",
     imgDesc:
       "Cut-out photo: classic Negroni in a rocks glass, one huge clear ice cube, orange wheel — shot top-down on red background like the IG jar shots",
-    src: "/images/hands-clicking.png"
+    src: "/images/on-tap/negroni.png"
   },
   {
     name: "Passiocletta",
@@ -44,7 +44,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Bitter Negroni, Vermut Roșu Dulce, San Martino Spumante, Măsline",
     imgDesc:
       "Cut-out photo: sbagliato in a stemmed glass with a skewer of green olives resting on the rim",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/Sbagliato.png"
   },
   {
     name: "Milanese G&T",
@@ -55,7 +55,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Gin Negroni, Bitter Negroni, Apă Tonică Bona, Lime",
     imgDesc:
       "Cut-out photo: pink-red G&T in a highball, lime wedge, big bubbles visible",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/Milanese-G&T.png"
   },
   {
     name: "Rosita",
@@ -66,7 +66,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Tequila Orendain Blanco, Bitter's mix, Vermut Roșu Dulce, Lime",
     imgDesc:
       "Cut-out photo: amber-red rosita over ice with dehydrated lime wheel",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/rosita.png"
   },
   {
     name: "Mi-To",
@@ -78,7 +78,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter Negroni, Vermut Roșu Dulce, Bitter Fusetti Mare, Vermut Bucci Rosso",
     imgDesc:
       "Cut-out photo: short dark-red Mi-To in a lowball, no garnish, moody light",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/Mi-To.png"
   },
   {
     name: "Americano",
@@ -90,7 +90,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter Negroni, Vermut Roșu Dulce, Fusetti Mare, Apă de trandafiri & lămâie, Portocale",
     imgDesc:
       "Cut-out photo: americano highball with soda fizz and orange slice inside the glass",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/americano.png"
   },
   {
     name: "Venetian Spritz",
@@ -101,7 +101,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
     ingredients: "Aperitiv Eleven, Montelvini Cuvee Spumante, Măsline",
     imgDesc:
       "Cut-out photo: bright orange spritz in a big wine glass, olive skewer, golden-hour light",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/venetiano-spritz.png"
   },
   {
     name: "Negroni Spritz",
@@ -113,7 +113,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Bitter's mix, Aperitiv Eleven, Montelvini Cuvee, Apă Tonică Bona, Portocale",
     imgDesc:
       "Cut-out photo: red spritz in a stemmed balloon glass with orange half-moon",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/negroni-spritz.png"
   },
   {
     name: "Veneto Spritz",
@@ -125,7 +125,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Sixteen, Montelvini Cuvee, Apă de trandafiri, Portocală uscată",
     imgDesc:
       "Cut-out photo: deep-orange spritz with dried orange chip standing in the foam",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/veneto-spritz.png"
   },
   {
     name: "Hugo",
@@ -137,7 +137,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Sambuco, Suc de lime, Montelvini Cuvee, Mentă, Lime",
     imgDesc:
       "Cut-out photo: pale green-white Hugo loaded with mint sprigs and lime wheels",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/hugo.png"
   },
   {
     name: "Limoncello Spritz",
@@ -149,7 +149,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Limoncello Negroni, Aperitiv Sambuco, Suc de lime, Montelvini Cuvee, Apă spumante",
     imgDesc:
       "Cut-out photo: cloudy yellow limoncello spritz with a fat lemon twist over the rim",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/limoncello-spritz.png"
   },
 ];
 
