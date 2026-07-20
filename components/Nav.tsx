@@ -64,8 +64,7 @@ export default function Nav() {
       >
         {/* wordmark */}
         <a
-          href="#top"
-          onClick={go("top")}
+          href="/"
           className="group flex items-center gap-2 text-ink"
         >
           {/* Roundel: replace with the real red NEGRONI roundel logo (SVG),

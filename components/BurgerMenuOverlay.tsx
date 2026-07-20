@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useRef, type MouseEvent } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { scrollToId } from "./SmoothScroll";
 
@@ -8,12 +9,30 @@ type MenuItem = {
   id: string;
   label: string;
   image: string;
+  /** present for real pages — navigates instead of scrolling to an in-page anchor */
+  href?: string;
 };
 
 const MENU_ITEMS: MenuItem[] = [
-  { id: "menu", label: "On Tap", image: "/images/on-tap/negroni.png" },
-  { id: "signatures", label: "Signatures", image: "/images/signatures/negroni-supremo.png" },
-  { id: "merch", label: "Merch", image: "/images/merch/multiple-merch.png" },
+  { id: "photos", label: "Negroni Photos", image: "/images/upclose-cocktail.png", href: "/photos" },
+  {
+    id: "passport",
+    label: "Apply For Passport",
+    image: "/images/events/passport.png",
+    href: "/passport",
+  },
+  {
+    id: "trading",
+    label: "Negroni Trading",
+    image: "/images/events/bartendings.png",
+    href: "/trading",
+  },
+  {
+    id: "catalogue",
+    label: "Catalogue",
+    image: "/images/merch/multiple-merch.png",
+    href: "/catalogue",
+  },
 ];
 
 type BurgerMenuOverlayProps = {
@@ -116,6 +135,8 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
     scrollToId(id);
   };
 
+  const handlePageClick = () => onClose();
+
   return (
     <div
       ref={panelRef}
@@ -127,7 +148,7 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
         ref={contentRef}
         className="flex h-[100vh] w-full flex-col px-6 pb-8 pt-24 md:px-16 md:pt-28"
       >
-        <nav className="grid min-h-0 flex-1 grid-cols-1 content-center md:grid-cols-[1fr_1.3fr] md:gap-x-16">
+        <nav className="grid min-h-0 flex-1 grid-cols-1 content-center overflow-y-auto md:grid-cols-[1fr_1.3fr] md:gap-x-16">
           {MENU_ITEMS.map((item, i) => (
             <Fragment key={item.id}>
               <div
@@ -139,20 +160,37 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
               >
                 <img src={item.image} alt="" className="h-full w-full object-cover" />
               </div>
-              <a
-                href={`#${item.id}`}
-                data-menu-row
-                onMouseEnter={() => showPhoto(i)}
-                onMouseLeave={() => hidePhoto(i)}
-                onClick={handleLinkClick(item.id)}
-                className="group flex items-center gap-4 border-b border-cream/15 py-3 md:py-5"
-                tabIndex={open ? 0 : -1}
-              >
-                <span className="eyebrow text-red">0{i + 1}</span>
-                <span className="display text-[clamp(2.4rem,7vw,4.5rem)] leading-none transition-colors duration-300 group-hover:text-red">
-                  {item.label}
-                </span>
-              </a>
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  data-menu-row
+                  onMouseEnter={() => showPhoto(i)}
+                  onMouseLeave={() => hidePhoto(i)}
+                  onClick={handlePageClick}
+                  className="group flex items-center gap-4 border-b border-cream/15 py-2.5 md:py-4"
+                  tabIndex={open ? 0 : -1}
+                >
+                  <span className="eyebrow text-red">0{i + 1}</span>
+                  <span className="display text-[clamp(1.7rem,5.5vw,3.4rem)] leading-none transition-colors duration-300 group-hover:text-red">
+                    {item.label}
+                  </span>
+                </Link>
+              ) : (
+                <a
+                  href={`#${item.id}`}
+                  data-menu-row
+                  onMouseEnter={() => showPhoto(i)}
+                  onMouseLeave={() => hidePhoto(i)}
+                  onClick={handleLinkClick(item.id)}
+                  className="group flex items-center gap-4 border-b border-cream/15 py-2.5 md:py-4"
+                  tabIndex={open ? 0 : -1}
+                >
+                  <span className="eyebrow text-red">0{i + 1}</span>
+                  <span className="display text-[clamp(1.7rem,5.5vw,3.4rem)] leading-none transition-colors duration-300 group-hover:text-red">
+                    {item.label}
+                  </span>
+                </a>
+              )}
             </Fragment>
           ))}
         </nav>

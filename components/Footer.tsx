@@ -102,7 +102,7 @@ export default function Footer() {
       <div ref={fixedRef} className="fixed bottom-0 left-0 z-0 w-full bg-red text-ink">
         <div ref={innerRef} className="flex min-h-svh flex-col justify-between bg-cream">
           {/* top: address + hours + link clouds */}
-          <div className="grid gap-10 px-4 pt-16 md:grid-cols-[1fr_auto_auto] md:gap-16 md:px-10 md:pt-20">
+          <div className="grid gap-10 px-4 pt-16 md:grid-cols-[1fr_auto_auto_auto] md:gap-16 md:px-10 md:pt-20">
             <div>
               <p className="eyebrow mb-4 flex items-center gap-2 text-red">
                 <Star className="h-3 w-3" /> See you at 18:19
@@ -149,6 +149,25 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* pill cloud: order & wholesale */}
+            <div>
+              <p className="eyebrow mb-4 opacity-50">Order</p>
+              <div className="flex max-w-xs flex-wrap gap-2.5">
+                <a data-pill href={INFO.glovo} target="_blank" rel="noreferrer" className={pill}>
+                  Glovo ↗
+                </a>
+                <a data-pill href={INFO.bolt} target="_blank" rel="noreferrer" className={pill}>
+                  Bolt Food ↗
+                </a>
+                <a data-pill href={INFO.wolt} target="_blank" rel="noreferrer" className={pill}>
+                  Wolt ↗
+                </a>
+                <a data-pill href={INFO.emagTrading} target="_blank" rel="noreferrer" className={pill}>
+                  eMAG ↗
+                </a>
+              </div>
+            </div>
+
             {/* pill cloud: social */}
             <div>
               <p className="eyebrow mb-4 opacity-50">Social</p>
@@ -159,11 +178,11 @@ export default function Footer() {
                 <a data-pill href={INFO.tripadvisor} target="_blank" rel="noreferrer" className={pill}>
                   TripAdvisor ↗
                 </a>
-                <a data-pill href={INFO.menuPdf} target="_blank" rel="noreferrer" className={pill}>
-                  Menu PDF ↗
-                </a>
                 <a data-pill href={INFO.mapsUrl} target="_blank" rel="noreferrer" className={pill}>
                   Google Maps ↗
+                </a>
+                <a data-pill href={INFO.joinTeam} target="_blank" rel="noreferrer" className={pill}>
+                  Join The Team ↗
                 </a>
               </div>
             </div>

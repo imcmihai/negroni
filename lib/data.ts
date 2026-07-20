@@ -297,7 +297,15 @@ export const INFO = {
   instagramHandle: "@negroni.ro",
   tripadvisor:
     "https://www.tripadvisor.co.uk/Attraction_Review-g294458-d32822690-Reviews-Negroni_Aperitivo_Bar-Bucharest.html",
-  menuPdf: "https://l.ead.me/negronicatalogue",
+  glovo: "https://glovoapp.com/ro/en/bucharest/negroni-aperitivo-bar-buc-1/",
+  bolt: "https://food.bolt.eu/en-US/325/p/88695-negroni-aperitivo-bar",
+  wolt: "https://wolt.com/ro/rou/bucharest/venue/negroni-aperitivo-bar-68591480b06a44a8af49761b",
+  emagTrading: "https://www.emag.ro/vendors/vendor/ngrnttkr",
+  joinTeam: "https://forms.gle/4E6vPCksFZNabxHo6",
+  photos: "https://negroni.pic-time.com/",
+  passport: "https://negronipassport.rsvpify.com",
+  trading: "https://negroni.trading/",
+  catalogue: "https://l.ead.me/negronicatalogue",
   hours: [
     { days: "Fri – Sat", time: "18:19 – 03:19" },
     { days: "Sun – Thu", time: "18:19 – 02:19" },

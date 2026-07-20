@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import Nav from "@/components/Nav";
+import SmoothScroll from "@/components/SmoothScroll";
 export const metadata: Metadata = {
   title: "NEGRONI Aperitivo Bar — Bucharest",
   description:
@@ -32,6 +33,8 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&display=swap"
         />
+              <SmoothScroll />
+              <Nav />
         {children}
       </body>
     </html>
