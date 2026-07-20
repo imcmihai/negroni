@@ -48,7 +48,9 @@ export default function Hero() {
           );
 
         /* — scroll parallax: glass drifts slower than the type — */
-        gsap.to("[data-glass]", {
+        /* runs on a separate wrapper (data-glass-scroll) so it never fights
+           the intro tween above for control of [data-glass]'s transform */
+        gsap.to("[data-glass-scroll]", {
           y: () => window.innerHeight * 0.22,
           rotate: 6,
           ease: "none",
@@ -56,7 +58,7 @@ export default function Hero() {
             trigger: root.current,
             start: "top top",
             end: "bottom top",
-            scrub: true,
+            scrub: 0.6,
           },
         });
         gsap.to("[data-title]", {
@@ -66,7 +68,7 @@ export default function Hero() {
             trigger: root.current,
             start: "top top",
             end: "bottom top",
-            scrub: true,
+            scrub: 0.6,
           },
         });
       }
@@ -106,14 +108,16 @@ export default function Hero() {
 
         {/* hero glass — sits under the type, parallaxes slower */}
         <div
-          data-glass
+          data-glass-scroll
           className="pointer-events-none absolute left-1/2 top-1/2 z-1 w-[42vw] -translate-x-1/2 -translate-y-[54%] md:w-[27vw]"
         >
-          <div className="float-idle">
-            <img
-            className="aspect-[3/4] z-1 w-full"
-             src="images/hero.png"
-            />
+          <div data-glass>
+            <div className="float-idle">
+              <img
+              className="aspect-[3/4] z-1 w-full"
+               src="images/hero.png"
+              />
+            </div>
           </div>
         </div>
 

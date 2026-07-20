@@ -122,7 +122,7 @@ export default function Merch() {
   return (
     <section ref={root} id="merch" className="overflow-hidden bg-cream py-24 text-ink md:py-32">
       <div className="px-4 md:px-10">
-        <p className="eyebrow mb-3 text-red">Merch — wear your Negroni</p>
+        <p className="eyebrow mb-3 px-1 text-red">Merch — wear your Negroni</p>
 
         {/* slogans as solid oversized type — filled so the section reads as content, not empty space; characters split apart around the cursor on hover */}
         <div data-slogans ref={slogansRef} className="space-y-3 md:space-y-3">
@@ -130,7 +130,7 @@ export default function Merch() {
             <p
               key={s}
               data-slogan
-              className="display w-fit cursor-default text-[clamp(1.8rem,5.4vw,4.6rem)] leading-[0.9]! text-ink md:leading-[0.86]!"
+              className="display w-fit cursor-default text-[clamp(1.8rem,5.4vw,7.6rem)] leading-[0.9]! text-ink md:leading-[0.86]!"
             >
               <SplitWords text={s} />
             </p>
@@ -144,7 +144,7 @@ export default function Merch() {
         speed="45s"
         separator={<span className="mx-3" />}
         items={MERCH.map((m) => (
-          <div key={m.name} className="group w-48 shrink-0">
+          <div key={m.name} className="group w-60 shrink-0">
             {/* <Placeholder
               tone="ink"
               className="aspect-square w-full transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-[1.03]"
