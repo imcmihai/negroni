@@ -126,7 +126,7 @@ export default function OnTap() {
               className="group relative flex w-[76vw] shrink-0 flex-col items-start justify-center gap-4 border border-cream/40 bg-ink p-8 text-cream transition-colors duration-500 bg-red text-cream sm:w-[340px]"
             >
               <p className="eyebrow text-red">Psst, amici</p>
-              <p className="display text-4xl leading-none">
+              <p className="display text-4xl leading-[1]!">
                 All 12, for 28 lei each, every day
               </p>
               <span className="btn-fill mt-2 border border-current px-5 py-2 text-xs font-bold uppercase tracking-widest [--fill:var(--red)]">

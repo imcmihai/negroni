@@ -47,7 +47,7 @@ export default function MenuPage() {
         {/* closing note */}
         <section className="border-t border-ink/15 px-4 py-16 md:px-10 md:py-24">
           <p className="eyebrow mb-3 text-red">Amici, one more thing</p>
-          <h2 className="display max-w-2xl text-[clamp(1.8rem,4.6vw,3.2rem)] leading-[0.95]">
+          <h2 className="display max-w-2xl text-[clamp(1.8rem,4.6vw,3.2rem)] leading-[1]!">
             No people under 18. No smoking inside. Table time without orders is limited to one
             hour.
           </h2>
@@ -56,8 +56,8 @@ export default function MenuPage() {
           </p>
         </section>
       </main>
-
-      <BackToTop />
+{/* 
+      <BackToTop /> */}
       <Footer />
     </div>
   );
