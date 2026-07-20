@@ -4,16 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { scrollToId } from "./SmoothScroll";
+import BurgerMenuButton from "./BurgerMenuButton";
+import BurgerMenuOverlay from "./BurgerMenuOverlay";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const LINKS = [
-  { label: "On Tap", id: "menu" },
-  { label: "The Train", id: "train" },
-  { label: "Signatures", id: "signatures" },
-  { label: "Events", id: "events" },
-  { label: "Merch", id: "merch" },
-];
 
 /** Live Bucharest clock — the bar's whole identity runs on :19 minutes. */
 function useBucharestTime() {
@@ -36,6 +30,7 @@ function useBucharestTime() {
 export default function Nav() {
   const ref = useRef<HTMLElement>(null);
   const time = useBucharestTime();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /* hide on scroll down, reveal on scroll up */
   useEffect(() => {
@@ -62,61 +57,43 @@ export default function Nav() {
   };
 
   return (
-    <header
-      ref={ref}
-      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-3 md:px-8"
-    >
-      {/* wordmark */}
-      <a
-        href="#top"
-        onClick={go("top")}
-        className="group flex items-center gap-2 text-ink"
+    <>
+      <header
+        ref={ref}
+        className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-3 md:px-8"
       >
-        {/* Roundel: replace with the real red NEGRONI roundel logo (SVG),
-            as seen on the menu cover and IG avatar */}
- <img 
-      className="h-15 w-15 place-items-center rounded-full bg-red border border-red border-[3px] text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]"
-      src='/logo.png'/>
-      </a>
-     
-      
+        {/* wordmark */}
+        <a
+          href="#top"
+          onClick={go("top")}
+          className="group flex items-center gap-2 text-ink"
+        >
+          {/* Roundel: replace with the real red NEGRONI roundel logo (SVG),
+              as seen on the menu cover and IG avatar */}
+   <img
+        className="h-15 w-15 place-items-center rounded-full bg-red border border-red border-[3px] text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]"
+        src='/logo.png'/>
+        </a>
 
-      {/* links */}
-      <nav className="hidden items-center gap-1 rounded-full border border-ink/15 bg-cream/80 px-2 py-1.5 backdrop-blur-md lg:flex">
-        {LINKS.map((l) => (
-          <a
-            key={l.id}
-            href={`#${l.id}`}
-            onClick={go(l.id)}
-            className="btn-fill rounded-full px-4 py-1.5 text-[13px] font-semibold uppercase tracking-wide [--fill:var(--red)]"
+        {/* clock + full menu + burger */}
+        <div className="flex items-center gap-2">
+          <span
+            className="hidden rounded-full border border-ink/15 bg-cream/80 px-3 py-2 font-mono text-xs tracking-widest backdrop-blur-md sm:block"
+            suppressHydrationWarning
           >
-            {l.label}
+            BUC {time ?? "--:--"}
+          </span>
+          <a
+            href="/menu"
+            className="btn-fill hidden rounded-full border border-ink/15 bg-cream/80 px-4 py-2 text-[13px] font-semibold uppercase tracking-wide backdrop-blur-md [--fill:var(--red)] [--fill-text:var(--cream)] sm:block"
+          >
+            Full menu
           </a>
-        ))}
-      </nav>
+          <BurgerMenuButton open={menuOpen} onClick={() => setMenuOpen((v) => !v)} />
+        </div>
+      </header>
 
-      {/* clock + CTA */}
-      <div className="flex items-center gap-2">
-        <span
-          className="hidden rounded-full border border-ink/15 bg-cream/80 px-3 py-2 font-mono text-xs tracking-widest backdrop-blur-md sm:block"
-          suppressHydrationWarning
-        >
-          BUC {time ?? "--:--"}
-        </span>
-        <a
-          href="/menu"
-          className="btn-fill hidden rounded-full border border-ink/15 bg-cream/80 px-4 py-2 text-[13px] font-semibold uppercase tracking-wide backdrop-blur-md [--fill:var(--red)] [--fill-text:var(--cream)] sm:block"
-        >
-          Full menu
-        </a>
-        <a
-          href="#visit"
-          onClick={go("visit")}
-          className="btn-fill rounded-full bg-red px-5 py-2 text-[13px] font-bold uppercase tracking-wide text-cream [--fill:var(--ink)] [--fill-text:var(--cream)]"
-        >
-          Find us
-        </a>
-      </div>
-    </header>
+      <BurgerMenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }
