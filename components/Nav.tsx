@@ -1,31 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { scrollToId } from "./SmoothScroll";
 import BurgerMenuButton from "./BurgerMenuButton";
 import BurgerMenuOverlay from "./BurgerMenuOverlay";
+import logoImg from "@/public/logo.png";
+import { useBucharestTime } from "@/hooks/useBucharestTime";
 
 gsap.registerPlugin(ScrollTrigger);
-
-/** Live Bucharest clock — the bar's whole identity runs on :19 minutes. */
-function useBucharestTime() {
-  const [time, setTime] = useState<string | null>(null);
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Bucharest",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-    const tick = () => setTime(fmt.format(new Date()));
-    tick();
-    const t = setInterval(tick, 10_000);
-    return () => clearInterval(t);
-  }, []);
-  return time;
-}
 
 export default function Nav() {
   const ref = useRef<HTMLElement>(null);
@@ -69,9 +54,10 @@ export default function Nav() {
         >
           {/* Roundel: replace with the real red NEGRONI roundel logo (SVG),
               as seen on the menu cover and IG avatar */}
-   <img
+   <Image
         className="h-15 w-15 place-items-center rounded-full bg-red border border-red border-[3px] text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]"
-        src='/logo.png'/>
+        src={logoImg}
+        alt=""/>
         </a>
 
         {/* clock + full menu + burger */}

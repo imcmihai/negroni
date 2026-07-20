@@ -6,7 +6,6 @@ import Manifesto from "@/components/Manifesto";
 import OnTap from "@/components/OnTap";
 import TrainBanner from "@/components/TrainBanner";
 import Signatures from "@/components/Signatures";
-import DulceBanana from "@/components/DulceBanana";
 import Events from "@/components/Events";
 import Merch from "@/components/Merch";
 import Footer from "@/components/Footer";

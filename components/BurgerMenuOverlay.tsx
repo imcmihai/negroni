@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, type CSSProperties, type MouseEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { scrollToId } from "./SmoothScroll";
 
@@ -180,7 +181,13 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                 className="relative hidden aspect-[4/5] h-44 w-auto self-center overflow-hidden md:block lg:h-56"
                 style={{ clipPath: "inset(0% 0% 100% 0%)" }}
               >
-                <img src={item.image} alt="" className="h-full w-full object-cover" />
+                <Image
+                  src={item.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 14rem, 11rem"
+                  className="h-full w-full object-cover"
+                />
               </div>
               {item.href ? (
                 <Link

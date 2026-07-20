@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import handsClickingImg from "@/public/images/hands-clicking.png";
+import upcloseCocktailImg from "@/public/images/upclose-cocktail.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,15 +86,17 @@ export default function Manifesto() {
         {/* photos: stacked on mobile, side-by-side and larger on desktop */}
         <div className="mx-auto flex w-full max-w-xs flex-col gap-6 md:mt-10 md:max-w-none md:flex-row md:gap-6">
           <div data-photo className="w-full overflow-hidden md:w-1/2">
-            <img
+            <Image
               className="aspect-[4/5] w-full object-cover"
-              src="/images/hands-clicking.png"
+              src={handsClickingImg}
+              alt=""
             />
           </div>
           <div data-photo className="w-full overflow-hidden md:w-1/2 md:translate-y-12">
-            <img
+            <Image
               className="aspect-square w-full object-cover md:aspect-[4/5]"
-              src="/images/upclose-cocktail.png"
+              src={upcloseCocktailImg}
+              alt=""
             />
           </div>
         </div>

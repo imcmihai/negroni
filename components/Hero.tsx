@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import heroImg from "@/public/images/hero.png";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -113,9 +114,11 @@ export default function Hero() {
         >
           <div data-glass>
             <div className="float-idle">
-              <img
-              className="aspect-[3/4] z-1 w-full"
-               src="images/hero.png"
+              <Image
+                className="aspect-[3/4] z-1 w-full"
+                src={heroImg}
+                alt=""
+                preload
               />
             </div>
           </div>

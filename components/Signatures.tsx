@@ -1,12 +1,23 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Placeholder from "./Placeholder";
 import { SIGNATURES, INFO } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/* intrinsic pixel dimensions of each signature photo, for next/image sizing math —
+   CSS (aspect-[3/4] + object-cover) still controls the rendered box */
+const SIGNATURE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "/images/signatures/tiki-negroni.png": { width: 2000, height: 2500 },
+  "/images/signatures/porno-negroni.png": { width: 399, height: 501 },
+  "/images/signatures/negroni-supremo.png": { width: 1920, height: 2592 },
+  "/images/signatures/drinkita.png": { width: 399, height: 501 },
+  "/images/signatures/sunset-spritz.png": { width: 600, height: 900 },
+};
 
 /**
  * Signature list — rows fill red on hover while a floating image preview
@@ -77,9 +88,10 @@ export default function Signatures() {
               <span className="hidden font-mono text-xs opacity-60 md:block">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <img
+              <Image
                 src={s.src}
                 alt={s.name}
+                {...SIGNATURE_DIMENSIONS[s.src]}
                 className="aspect-[3/4] w-20 shrink-0 rounded-lg object-cover shadow-md md:hidden"
               />
               <div className="min-w-0 flex-1 md:contents">
@@ -113,9 +125,11 @@ export default function Signatures() {
           //   className="aspect-[3/4] w-full bg-cream shadow-2xl"
           //   desc={SIGNATURES[active].imgDesc}
           // />
-            <img
+            <Image
             className="aspect-[3/4]"
             src={SIGNATURES[active].src}
+            alt={SIGNATURES[active].name}
+            {...SIGNATURE_DIMENSIONS[SIGNATURES[active].src]}
           />
         )}
       </div>

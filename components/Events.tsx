@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Placeholder from "./Placeholder";
@@ -56,9 +57,12 @@ export default function Events() {
               className="mb-6 aspect-[4/3] w-full border-cream/40 bg-transparent text-cream"
               desc={ev.imgDesc}
             /> */}
-                        <img
+                        <Image
               className="mb-6 aspect-[4/3] w-full"
               src={ev.src}
+              alt={ev.title}
+              width={2500}
+              height={2000}
             />
 
             <h3 className="display text-3xl">{ev.title}</h3>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "./Footer";
 
 type ExternalLinkPageProps = {
@@ -59,8 +60,14 @@ export default function ExternalLinkPage({
             </a>
             {note && <p className="mt-5 max-w-sm text-sm opacity-60">{note}</p>}
           </div>
-          <div className="order-1 aspect-[4/5] w-full overflow-hidden md:order-2 md:aspect-[3/4]">
-            <img src={image} alt="" className="h-full w-full object-cover" />
+          <div className="relative order-1 aspect-[4/5] w-full overflow-hidden md:order-2 md:aspect-[3/4]">
+            <Image
+              src={image}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 55vw, 100vw"
+              className="h-full w-full object-cover"
+            />
           </div>
         </section>
       </main>

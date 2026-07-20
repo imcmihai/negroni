@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Placeholder from "./Placeholder";
 import { TAP_COCKTAILS } from "@/lib/data";
+import trainImg from "@/public/images/negroni-train.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,9 +100,12 @@ export default function OnTap() {
                   </span>
                 </div>
 
-                     <img
+                     <Image
                   className="mb-5 aspect-[4/5] w-full border-current bg-transparent text-current"
                   src={c.src}
+                  alt=""
+                  width={2000}
+                  height={2500}
                 />
 
                 <h3 className="display text-3xl">{c.name}</h3>
@@ -155,8 +160,6 @@ export default function OnTap() {
 /** Minimal loco + two cars. Replace with a custom illustrated brand train if available. */
 export function TrainIcon({ className = "" }: { className?: string }) {
   return (
-
-    <img src="/images/negroni-train.png" className="h-[7rem]">
-</img>
+    <Image src={trainImg} alt="" className="h-[7rem]" />
   );
 }

@@ -1,27 +1,7 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { INFO } from "@/lib/data";
 import { Star } from "./Marquee";
-
-/** Live Bucharest clock — same brand detail as the homepage Nav. */
-function useBucharestTime() {
-  const [time, setTime] = useState<string | null>(null);
-  useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Bucharest",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-    const tick = () => setTime(fmt.format(new Date()));
-    tick();
-    const t = setInterval(tick, 10_000);
-    return () => clearInterval(t);
-  }, []);
-  return time;
-}
+import BucharestClock from "./BucharestClock";
 
 /**
  * Brand header + hero for /menu. Not fixed (unlike the homepage Nav) — the
@@ -29,8 +9,6 @@ function useBucharestTime() {
  * once you start scrolling the long list.
  */
 export default function MenuHeader() {
-  const time = useBucharestTime();
-
   return (
     <header id="menu-top" className="relative bg-cream">
       {/* top bar */}
@@ -50,12 +28,7 @@ export default function MenuHeader() {
         </Link>
 
         <div className="flex items-center gap-2">
-          <span
-            className="hidden rounded-full border border-ink/15 bg-cream/80 px-3 py-2 font-mono text-xs tracking-widest backdrop-blur-md sm:block"
-            suppressHydrationWarning
-          >
-            BUC {time ?? "--:--"}
-          </span>
+          <BucharestClock />
           <a
             href={INFO.mapsUrl}
             target="_blank"

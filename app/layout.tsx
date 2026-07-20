@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
+import { Anton, Archivo, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import SmoothScroll from "@/components/SmoothScroll";
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
+});
+const archivo = Archivo({
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-archivo",
+});
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["italic"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+});
 export const metadata: Metadata = {
   title: "NEGRONI Aperitivo Bar — Bucharest",
   description:
@@ -19,20 +38,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
+    <html
+      lang="en"
+      className={`antialiased ${anton.variable} ${archivo.variable} ${instrumentSerif.variable}`}
+    >
       <body className="min-h-svh bg-cream text-ink">
-        {/* Google Fonts — React hoists these to <head>. Swap to next/font/google
-            for self-hosting when deploying, if preferred. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&display=swap"
-        />
               <SmoothScroll />
               <Nav />
         {children}

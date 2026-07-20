@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Placeholder from "./Placeholder";
@@ -150,10 +151,12 @@ export default function Merch() {
               className="aspect-square w-full transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-[1.03]"
               desc={m.imgDesc}
             /> */}
-                        <img
-
+                        <Image
               className="aspect-square w-full transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-[1.03]"
               src={m.src}
+              alt={m.name}
+              width={2000}
+              height={2000}
             />
             <div className="mt-3 flex items-baseline justify-between whitespace-normal">
               <span className="display text-lg">{m.name}</span>
