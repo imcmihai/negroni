@@ -103,6 +103,12 @@ export default function Nav() {
           BUC {time ?? "--:--"}
         </span>
         <a
+          href="/menu"
+          className="btn-fill hidden rounded-full border border-ink/15 bg-cream/80 px-4 py-2 text-[13px] font-semibold uppercase tracking-wide backdrop-blur-md [--fill:var(--red)] [--fill-text:var(--cream)] sm:block"
+        >
+          Full menu
+        </a>
+        <a
           href="#visit"
           onClick={go("visit")}
           className="btn-fill rounded-full bg-red px-5 py-2 text-[13px] font-bold uppercase tracking-wide text-cream [--fill:var(--ink)] [--fill-text:var(--cream)]"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { INFO } from "@/lib/data";
@@ -31,6 +32,8 @@ export default function Footer() {
   const innerRef = useRef<HTMLDivElement>(null);
   const spacerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   /* keep the flow-spacer exactly as tall as the fixed footer */
   useEffect(() => {
@@ -130,10 +133,19 @@ export default function Footer() {
               <p className="eyebrow mb-4 opacity-50">Menu</p>
               <div className="flex max-w-xs flex-wrap gap-2.5">
                 {PAGE_LINKS.map((l) => (
-                  <a key={l.id} data-pill href={`#${l.id}`} onClick={go(l.id)} className={pill}>
+                  <a
+                    key={l.id}
+                    data-pill
+                    href={isHome ? `#${l.id}` : `/#${l.id}`}
+                    onClick={isHome ? go(l.id) : undefined}
+                    className={pill}
+                  >
                     {l.label}
                   </a>
                 ))}
+                <a data-pill href="/menu" className={pill}>
+                  Full Menu
+                </a>
               </div>
             </div>
 

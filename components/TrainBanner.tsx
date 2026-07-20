@@ -99,7 +99,7 @@ export default function TrainBanner() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="eyebrow opacity-80">Every day · golden hour ride</p>
-            <h2 className="display mt-2 text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.85]">
+            <h2 className="display mt-2 text-[clamp(2.6rem,7vw,5.5rem)] leading-[1]!">
               Aperitivo
               <br />
               Train
@@ -124,7 +124,7 @@ export default function TrainBanner() {
           </div>
           <div>
             <p className="eyebrow opacity-70">Destination</p>
-            <p className="display mt-1 text-3xl">All 12 tap cocktails</p>
+            <p className="display mt-1 text-3xl leading-[1]!">All 12 tap cocktails</p>
           </div>
           <div>
             <p className="eyebrow opacity-70">Fare price</p>

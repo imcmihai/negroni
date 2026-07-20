@@ -33,7 +33,7 @@ export const TAP_COCKTAILS: Cocktail[] = [
       "Aperitiv Eleven, Bitter OLD 1919, Chinola Passion Fruit, Spumante, Apă de trandafiri",
     imgDesc:
       "Cut-out photo: tall sparkling orange cocktail with dried orange wheel garnish, condensation drops",
-      src: "/images/hands-clicking.png"
+      src: "/images/on-tap/hugo.png"
   },
   {
     name: "Sbagliato",
@@ -172,7 +172,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Pineapple foam, raspberry dust — the Negroni goes on holiday",
     imgDesc:
       "Photo: tiki negroni crowned with white pineapple foam and red raspberry powder, tropical props blurred behind",
-      src: "/images/upclose-cocktail.png"
+      src: "/images/signatures/tiki-negroni.png"
   },
   {
     name: "Porno Negroni",
@@ -182,7 +182,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Two gins, passion fruit, shimmer of candurin — explicit content",
     imgDesc:
       "Photo: glittering shimmering red negroni (candurin swirl visible), shot macro, dark background",
-      src: "/images/hands-clicking.png"
+      src: "/images/signatures/porno-negroni.png"
   },
   {
     name: "Negroni Supremo",
@@ -192,7 +192,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Eight bottles deep. One cherry on top. The boss",
     imgDesc:
       "Photo: dark garnet negroni in crystal lowball with single glossy cherry, dramatic side light",
-      src: "/images/upclose-cocktail.png"
+      src: "/images/signatures/negroni-supremo.png"
   },
   {
     name: "Drinkita",
@@ -202,7 +202,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Mezcal, mango, La Gauloise — smoky sunshine with a kick",
     imgDesc:
       "Photo: golden-yellow drinkita with mango slice fan and chili-salt rim, halftone collage treatment like the DRINKITA event poster",
-            src: "/images/hands-clicking.png"
+            src: "/images/signatures/drinkita.png"
   },
   {
     name: "Vișinată Cola",
@@ -212,7 +212,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Grandma's vișinată meets cola, tonka & vanilla foam",
     imgDesc:
       "Photo: dark cherry-cola drink in a tall glass, vanilla foam layer, sour cherries on skewer",
-      src: "/images/upclose-cocktail.png"
+      src: "/images/signatures/tiki-negroni.png"
   },
   {
     name: "Sunset Spritz",
@@ -222,7 +222,7 @@ export const SIGNATURES: Signature[] = [
     notes: "Bergamot, Cynar, peach & grapefruit — golden hour in a glass",
     imgDesc:
       "Photo: gradient orange-pink spritz backlit by sunset, like the SUNSET SPRITZ event artwork",
-            src: "/images/hands-clicking.png"
+            src: "/images/signatures/sunset-spritz.png"
   },
 ];
 
@@ -247,7 +247,7 @@ export const EVENTS = [
       "Powered by Negroni Trading, the bar becomes a global playground for award-winning mixologists, brand ambassadors and cocktail visionaries. Masterclasses included.",
     imgDesc:
       "Halftone collage poster in brand style: black&white cutout portraits of two bartenders over red circles and orange drink, like the DRINKITA 22&23 MAY poster",
-      src: "/images/hands-clicking.png"
+      src: "/images/events/bartendings.png"
   },
   {
     tag: "Seasonly",
@@ -256,7 +256,7 @@ export const EVENTS = [
       "Closed-door parties soundtracked by the world's finest in dark disco, indie dance and post-punk. Cocktails, music and bittersweet community collide.",
     imgDesc:
       "Photo: packed bar at night, red neon 'NEGRONIED' sign glowing over the crowd, motion blur dancing",
-      src: "/images/hands-clicking.png"
+      src: "/images/events/parties.png"
   },
   {
     tag: "Members",
@@ -265,27 +265,27 @@ export const EVENTS = [
       "Our most devoted amici carry NEGRONI Passports — exclusive cocktail perks and access to the closed-door parties. Ask a manager how to apply for yours.",
     imgDesc:
       "Photo: burgundy 'PASSAPORTO' booklet with wax-sealed envelope and negroni glass on black croc leather, like the IG passport shot",
-      src: "/images/hands-clicking.png"
+      src: "/images/events/passport.png"
   },
 ];
 
 export const MERCH = [
-  { name: "Tricou", price: "250 lei", imgDesc: "Photo: white tee with orange 'MY NEGRONI IS YOUR PUTERE' print, worn from the back like the IG shot" },
-  { name: "Hanorac", price: "550 lei", imgDesc: "Photo: black hoodie with blurred 'WANNA DRINK ABOUT IT?' orange print" },
-  { name: "Căciulă Alpaca", price: "250 lei", imgDesc: "Photo: red 100% alpaca beanie folded, embroidered logo patch" },
-  { name: "Sacoșă Tote", price: "34 lei", imgDesc: "Photo: cream tote bag with red 'Negroni Is My Love Language' print, filled with cocktail jars" },
-  { name: "Halbă", price: "129 lei", imgDesc: "Photo: heavy glass mug with red NEGRONI roundel logo, filled with ice" },
-  { name: "Pahar", price: "49 lei", imgDesc: "Photo: branded rocks glass with red logo, single big ice cube" },
-  { name: "Șosete", price: "29 lei", imgDesc: "Photo: pair of red-cream checkered socks, flat lay" },
-  { name: "Sticker Pack", price: "29 lei", imgDesc: "Photo: scattered die-cut stickers — logo roundel, 'negronied', banana flask" },
-  { name: "Brățară", price: "15 lei", imgDesc: "Photo: woven festival bracelets with woven-in slogans, stacked on a wrist holding a negroni" },
-  { name: "Pin", price: "29 lei", imgDesc: "Photo: enamel pin of the red NEGRONI roundel on denim" },
+  { name: "Tricou", price: "250 lei", imgDesc: "Photo: white tee with orange 'MY NEGRONI IS YOUR PUTERE' print, worn from the back like the IG shot" , src: "/images/merch/tshirt.png"}, 
+  { name: "Hanorac", price: "550 lei", imgDesc: "Photo: black hoodie with blurred 'WANNA DRINK ABOUT IT?' orange print" , src: "/images/merch/multiple-merch.png"},
+  { name: "Căciulă Alpaca", price: "250 lei", imgDesc: "Photo: red 100% alpaca beanie folded, embroidered logo patch" , src: "/images/merch/beanie.png"},
+  { name: "Sacoșă Tote", price: "34 lei", imgDesc: "Photo: cream tote bag with red 'Negroni Is My Love Language' print, filled with cocktail jars" , src: "/images/merch/tshirt.png"},
+  { name: "Halbă", price: "129 lei", imgDesc: "Photo: heavy glass mug with red NEGRONI roundel logo, filled with ice" , src: "/images/merch/tshirt.png"},
+  { name: "Pahar", price: "49 lei", imgDesc: "Photo: branded rocks glass with red logo, single big ice cube" , src: "/images/merch/beanie.png"},
+  { name: "Șosete", price: "29 lei", imgDesc: "Photo: pair of red-cream checkered socks, flat lay" , src: "/images/merch/tshirt-v2.png"},
+  { name: "Sticker Pack", price: "29 lei", imgDesc: "Photo: scattered die-cut stickers — logo roundel, 'negronied', banana flask" , src: "/images/merch/beanie.png"},
+  { name: "Brățară", price: "15 lei", imgDesc: "Photo: woven festival bracelets with woven-in slogans, stacked on a wrist holding a negroni" , src: "/images/merch/multiple-merch.png"},
+  { name: "Pin", price: "29 lei", imgDesc: "Photo: enamel pin of the red NEGRONI roundel on denim" , src: "/images/merch/beanie.png"},
 ];
 
 export const SLOGANS = [
   "Can't stop drinking about you",
   "Wanna drink about it?",
-  "My Negroni, your lips, apocalypse",
+  // "My Negroni, your lips, apocalypse",
   "Negronied together forever",
   "My Negroni is your putere",
 ];

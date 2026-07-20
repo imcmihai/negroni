@@ -130,7 +130,7 @@ export default function Merch() {
             <p
               key={s}
               data-slogan
-              className="display w-fit cursor-default text-[clamp(1.8rem,5.4vw,4.6rem)] text-ink"
+              className="display w-fit cursor-default text-[clamp(1.8rem,5.4vw,4.6rem)] leading-[0.9]! text-ink md:leading-[0.86]!"
             >
               <SplitWords text={s} />
             </p>
@@ -145,10 +145,15 @@ export default function Merch() {
         separator={<span className="mx-3" />}
         items={MERCH.map((m) => (
           <div key={m.name} className="group w-48 shrink-0">
-            <Placeholder
+            {/* <Placeholder
               tone="ink"
               className="aspect-square w-full transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-[1.03]"
               desc={m.imgDesc}
+            /> */}
+                        <img
+
+              className="aspect-square w-full transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-[1.03]"
+              src={m.src}
             />
             <div className="mt-3 flex items-baseline justify-between whitespace-normal">
               <span className="display text-lg">{m.name}</span>

@@ -195,6 +195,15 @@ body {
       right / 51% 100% no-repeat;
 }
 
+/* hide scrollbar on horizontally-scrolling bars (quick-nav) while staying scrollable */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ————— reduced motion ————— */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,

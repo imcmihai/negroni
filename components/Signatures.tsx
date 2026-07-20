@@ -122,13 +122,19 @@ export default function Signatures() {
 
       <div className="mt-12 flex flex-wrap items-center gap-4 px-4 md:px-10">
         <a
+          href="/menu"
+          className="btn-fill bg-red px-6 py-3 text-xs font-bold uppercase tracking-widest text-cream [--fill:var(--ink)] [--fill-text:var(--cream)]"
+        >
+          Browse the full menu →
+        </a>
+        {/* <a
           href={INFO.menuPdf}
           target="_blank"
           rel="noreferrer"
           className="btn-fill border border-ink px-6 py-3 text-xs font-bold uppercase tracking-widest [--fill:var(--red)]"
         >
-          Full menu (PDF) ↗
-        </a>
+          Download PDF ↗
+        </a> */}
         <p className="text-sm opacity-60">
           + classics, frozen drops, shots, zero-proof, wine &amp; antipasti at the bar
         </p>

@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Placeholder from "./Placeholder";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,14 +27,30 @@ export default function Manifesto() {
         },
       });
 
-      gsap.from("[data-photo]", {
-        y: 90,
-        rotate: (i) => (i % 2 ? 7 : -6),
-        autoAlpha: 0,
-        duration: 1.1,
-        ease: "power3.out",
-        stagger: 0.15,
-        scrollTrigger: { trigger: root.current, start: "top 60%" },
+      /* clip-path reveal: each photo unclips top-to-bottom while its image
+         settles from a slight zoom, synced to scroll for a sense of depth */
+      gsap.utils.toArray<HTMLElement>("[data-photo]").forEach((photo) => {
+        const img = photo.querySelector("img");
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: photo,
+            start: "top 95%",
+            end: "top 15%",
+            scrub: 1.4,
+          },
+        });
+
+        tl.fromTo(
+          photo,
+          { clipPath: "inset(0% 0% 100% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut" },
+          0
+        ).fromTo(
+          img,
+          { scale: 1.2 },
+          { scale: 1, ease: "power2.inOut" },
+          0
+        );
       });
     }, root);
     return () => ctx.revert();
@@ -46,12 +61,12 @@ export default function Manifesto() {
       ref={root}
       className="relative bg-cream px-4 py-28 text-cream md:px-10 md:py-40"
     >
-      <div className="mx-auto grid max-w-8xl gap-14 md:grid-cols-[1.5fr_1fr] md:gap-10">
+      <div className="mx-auto grid max-w-8xl gap-14 md:grid-cols-[1.15fr_1fr] md:gap-10">
         <div>
           <p className="eyebrow mb-8 text-black">Welcome on the bittersweet board, amici</p>
           <p
             data-copy
-            className="display max-w-[30ch] text-[clamp(1.9rem,4.6vw,3.9rem)] leading-[1.35]!"
+            className="display max-w-[30ch] text-[clamp(1.9rem,4.6vw,3.9rem)] leading-[1]!"
           >
             {TEXT.split(" ").map((w, i) => (
               <span key={i} data-word className="opacity-[0.14] text-black">
@@ -65,22 +80,17 @@ export default function Manifesto() {
           </p>
         </div>
 
-        {/* photo stack, slightly scattered like taped-up polaroids */}
-        <div className="relative mx-auto w-full max-w-xs md:mt-10">
-          <div data-photo className="rotate-[-5deg]">
+        {/* photos: stacked on mobile, side-by-side and larger on desktop */}
+        <div className="mx-auto flex w-full max-w-xs flex-col gap-6 md:mt-10 md:max-w-none md:flex-row md:gap-6">
+          <div data-photo className="w-full overflow-hidden md:w-1/2">
             <img
-              className="aspect-[4/5] w-full"
+              className="aspect-[4/5] w-full object-cover"
               src="/images/hands-clicking.png"
             />
           </div>
-          <div data-photo className="absolute -bottom-16 -right-4 w-3/4 rotate-[6deg] md:-right-10">
-            {/* <Placeholder
-              tone="ink"
-              className="aspect-square w-full"
-              desc="Photo: the red neon 'NEGRONIED' sign glowing inside the dark bar"
-            /> */}
+          <div data-photo className="w-full overflow-hidden md:w-1/2 md:translate-y-12">
             <img
-              className="aspect-square w-full"
+              className="aspect-square w-full object-cover md:aspect-[4/5]"
               src="/images/upclose-cocktail.png"
             />
           </div>
