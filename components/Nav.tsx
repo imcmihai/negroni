@@ -74,11 +74,12 @@ export default function Nav() {
       >
         {/* Roundel: replace with the real red NEGRONI roundel logo (SVG),
             as seen on the menu cover and IG avatar */}
-        <span className="grid h-8 w-8 place-items-center rounded-full bg-red text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]">
-          NEG
-        </span>
-        <span className="display text-xl leading-none">Negroni</span>
+ <img 
+      className="h-15 w-15 place-items-center rounded-full bg-red border border-red border-[3px] text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]"
+      src='/logo.png'/>
       </a>
+     
+      
 
       {/* links */}
       <nav className="hidden items-center gap-1 rounded-full border border-ink/15 bg-cream/80 px-2 py-1.5 backdrop-blur-md lg:flex">
