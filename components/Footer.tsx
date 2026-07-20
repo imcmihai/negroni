@@ -111,7 +111,7 @@ export default function Footer() {
                 href={INFO.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="display block text-3xl hover:text-red md:text-4xl"
+                className="display block text-3xl hover:text-red md:text-4xl leading-[1]!"
               >
                 {INFO.address}
               </a>

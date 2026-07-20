@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, type CSSProperties, type MouseEvent } from "react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -68,6 +68,11 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
   const contentRef = useRef<HTMLDivElement>(null);
   const photoRefs = useRef<Array<HTMLDivElement | null>>([]);
   const timeline = useRef<gsap.core.Timeline | null>(null);
+  /* the row-reveal stagger translates rows via `y`, which temporarily
+     enlarges the nav's scrollable overflow while in flight — keep the
+     nav non-scrollable until the open animation settles so that
+     doesn't flash a scrollbar on shorter viewports */
+  const [scrollReady, setScrollReady] = useState(false);
 
   /* build the open/close timeline once: curtain drops from the top with a
      domed bottom edge (wide border-radius) that flattens out as it reaches
@@ -114,8 +119,10 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
     if (open) {
       document.body.style.overflow = "hidden";
       window.__lenis?.stop();
+      tl.eventCallback("onComplete", () => setScrollReady(true));
       tl.play();
     } else {
+      setScrollReady(false);
       tl.reverse();
       document.body.style.overflow = "";
       window.__lenis?.start();
@@ -169,16 +176,20 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
     >
       <div
         ref={contentRef}
-        className="flex h-[100vh] w-full flex-col px-6 pb-8 pt-24 md:px-16 md:pt-28"
+        className="flex h-[100vh] w-full flex-col px-6 pb-[clamp(1.5rem,4vh,2rem)] pt-[clamp(4rem,12vh,6rem)] md:px-16 md:pt-[clamp(4.5rem,13vh,7rem)]"
       >
-        <nav className="grid min-h-0 flex-1 grid-cols-1 content-center overflow-y-auto md:grid-cols-[1fr_1.3fr] md:gap-x-16">
+        <nav
+          className={`grid min-h-0 flex-1 grid-cols-1 content-center md:grid-cols-[1fr_1.3fr] md:gap-x-16 ${
+            scrollReady ? "overflow-y-auto" : "overflow-y-hidden"
+          }`}
+        >
           {MENU_ITEMS.map((item, i) => (
             <Fragment key={item.id}>
               <div
                 ref={(el) => {
                   photoRefs.current[i] = el;
                 }}
-                className="relative hidden aspect-[4/5] h-44 w-auto self-center overflow-hidden md:block lg:h-56"
+                className="relative hidden aspect-[4/5] h-[clamp(5.5rem,18vh,14rem)] w-auto self-center overflow-hidden md:block"
                 style={{ clipPath: "inset(0% 0% 100% 0%)" }}
               >
                 <Image
@@ -196,13 +207,13 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   onMouseEnter={() => showPhoto(i)}
                   onMouseLeave={() => hidePhoto(i)}
                   onClick={handlePageClick}
-                  className="group relative flex items-center gap-4 py-3 md:gap-5 md:py-5"
+                  className="group relative flex items-center gap-4 py-[clamp(0.5rem,2vh,1.25rem)] md:gap-5"
                   tabIndex={open ? 0 : -1}
                 >
                   <span className="eyebrow text-white">
                     <StaggerReveal text={`0${i + 1}`} />
                   </span>
-                  <span className="display text-[clamp(2rem,6.5vw,4.3rem)] leading-none">
+                  <span className="display text-[clamp(1.75rem,4vw+3vh,4.3rem)] leading-none">
                     <StaggerReveal text={item.label} />
                   </span>
                   <span
@@ -221,13 +232,13 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   onMouseEnter={() => showPhoto(i)}
                   onMouseLeave={() => hidePhoto(i)}
                   onClick={handleLinkClick(item.id)}
-                  className="group relative flex items-center gap-4 py-3 md:gap-5 md:py-5"
+                  className="group relative flex items-center gap-4 py-[clamp(0.5rem,2vh,1.25rem)] md:gap-5"
                   tabIndex={open ? 0 : -1}
                 >
                   <span className="eyebrow text-white">
                     <StaggerReveal text={`0${i + 1}`} />
                   </span>
-                  <span className="display text-[clamp(2rem,6.5vw,4.3rem)] leading-none">
+                  <span className="display text-[clamp(1.75rem,4vw+3vh,4.3rem)] leading-none">
                     <StaggerReveal text={item.label} />
                   </span>
                   <span
