@@ -17,12 +17,13 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <div>
-      <SmoothScroll />
       {/* everything except the fixed-reveal Footer lives in one opaque,
           stacked-above-the-footer layer — same pattern as the homepage's
           <main>, so Footer's fixed curtain never paints over live content */}
       <main className="relative z-10 bg-cream shadow-[0_30px_60px_rgba(7,6,13,0.35)]">
-        <MenuHeader />
+<div className="h-[7rem] w-full">
+
+</div>
         <MenuQuickNav />
 
         {MENU_CATEGORIES.map((category, i) => (

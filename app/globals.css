@@ -204,6 +204,35 @@ body {
   display: none;
 }
 
+/* ————— staggered character reveal (burger menu hover) ————— */
+.stagger-char-mask {
+  line-height: 1.2;
+}
+.stagger-char-1,
+.stagger-char-2 {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  transition-delay: var(--stagger-delay, 0ms);
+  will-change: transform;
+}
+.stagger-char-1 {
+  transform: translateY(0%);
+}
+.stagger-char-2 {
+  transform: translateY(100%);
+}
+.group:hover .stagger-char-1 {
+  transform: translateY(-100%);
+}
+.group:hover .stagger-char-2 {
+  transform: translateY(0%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .stagger-char-1,
+  .stagger-char-2 {
+    transition: none;
+  }
+}
+
 /* ————— reduced motion ————— */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,

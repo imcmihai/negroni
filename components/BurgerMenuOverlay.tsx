@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, type MouseEvent } from "react";
+import { Fragment, useEffect, useRef, type CSSProperties, type MouseEvent } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { scrollToId } from "./SmoothScroll";
@@ -39,6 +39,28 @@ type BurgerMenuOverlayProps = {
   open: boolean;
   onClose: () => void;
 };
+
+/** splits text into per-character masks with a stacked duplicate underneath;
+    on `.group:hover` each pair swaps places on a stagger, giving the
+    awwwwards-style flip reveal instead of a plain color change */
+function StaggerReveal({ text }: { text: string }) {
+  return (
+    <span className="stagger-char-mask inline-flex flex-wrap">
+      {Array.from(text).map((ch, i) => (
+        <span
+          key={i}
+          className="relative inline-block overflow-hidden"
+          style={{ "--stagger-delay": `${i * 18}ms` } as CSSProperties}
+        >
+          <span className="stagger-char-1 block">{ch === " " ? " " : ch}</span>
+          <span aria-hidden className="stagger-char-2 absolute left-0 top-0 block">
+            {ch === " " ? " " : ch}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayProps) {
   const panelRef = useRef<HTMLDivElement>(null);
@@ -140,7 +162,7 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
   return (
     <div
       ref={panelRef}
-      className="fixed inset-x-0 top-0 z-40 overflow-hidden bg-ink text-cream"
+      className="fixed inset-x-0 top-0 z-40 overflow-hidden bg-red text-cream"
       style={{ height: 0 }}
       aria-hidden={!open}
     >
@@ -155,7 +177,7 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                 ref={(el) => {
                   photoRefs.current[i] = el;
                 }}
-                className="relative hidden aspect-[4/5] h-36 w-auto self-center overflow-hidden md:block lg:h-44"
+                className="relative hidden aspect-[4/5] h-44 w-auto self-center overflow-hidden md:block lg:h-56"
                 style={{ clipPath: "inset(0% 0% 100% 0%)" }}
               >
                 <img src={item.image} alt="" className="h-full w-full object-cover" />
@@ -167,13 +189,23 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   onMouseEnter={() => showPhoto(i)}
                   onMouseLeave={() => hidePhoto(i)}
                   onClick={handlePageClick}
-                  className="group flex items-center gap-4 border-b border-cream/15 py-2.5 md:py-4"
+                  className="group relative flex items-center gap-4 py-3 md:gap-5 md:py-5"
                   tabIndex={open ? 0 : -1}
                 >
-                  <span className="eyebrow text-red">0{i + 1}</span>
-                  <span className="display text-[clamp(1.7rem,5.5vw,3.4rem)] leading-none transition-colors duration-300 group-hover:text-red">
-                    {item.label}
+                  <span className="eyebrow text-white">
+                    <StaggerReveal text={`0${i + 1}`} />
                   </span>
+                  <span className="display text-[clamp(2rem,6.5vw,4.3rem)] leading-none">
+                    <StaggerReveal text={item.label} />
+                  </span>
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-cream/15"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-white transition-transform duration-[520ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-x-100"
+                  />
                 </Link>
               ) : (
                 <a
@@ -182,13 +214,23 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   onMouseEnter={() => showPhoto(i)}
                   onMouseLeave={() => hidePhoto(i)}
                   onClick={handleLinkClick(item.id)}
-                  className="group flex items-center gap-4 border-b border-cream/15 py-2.5 md:py-4"
+                  className="group relative flex items-center gap-4 py-3 md:gap-5 md:py-5"
                   tabIndex={open ? 0 : -1}
                 >
-                  <span className="eyebrow text-red">0{i + 1}</span>
-                  <span className="display text-[clamp(1.7rem,5.5vw,3.4rem)] leading-none transition-colors duration-300 group-hover:text-red">
-                    {item.label}
+                  <span className="eyebrow text-white">
+                    <StaggerReveal text={`0${i + 1}`} />
                   </span>
+                  <span className="display text-[clamp(2rem,6.5vw,4.3rem)] leading-none">
+                    <StaggerReveal text={item.label} />
+                  </span>
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-cream/15"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-white transition-transform duration-[520ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-x-100"
+                  />
                 </a>
               )}
             </Fragment>
