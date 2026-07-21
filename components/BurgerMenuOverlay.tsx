@@ -213,7 +213,7 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   <span className="eyebrow text-white">
                     <StaggerReveal text={`0${i + 1}`} />
                   </span>
-                  <span className="display text-[clamp(1.75rem,4vw+3vh,4.3rem)] leading-none">
+                  <span className="display text-[clamp(2.5rem,6.5vw,1.75rem)] leading-none md:text-[clamp(1.75rem,4vw+3vh,4.3rem)]">
                     <StaggerReveal text={item.label} />
                   </span>
                   <span
@@ -238,7 +238,7 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   <span className="eyebrow text-white">
                     <StaggerReveal text={`0${i + 1}`} />
                   </span>
-                  <span className="display text-[clamp(1.75rem,4vw+3vh,4.3rem)] leading-none">
+                  <span className="display text-[clamp(1.25rem,5.5vw,1.75rem)] leading-none md:text-[clamp(1.75rem,4vw+3vh,4.3rem)]">
                     <StaggerReveal text={item.label} />
                   </span>
                   <span

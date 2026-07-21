@@ -73,7 +73,7 @@ export default function OnTap() {
         {/* header */}
         <div className="px-4 md:px-10">
           <p className="eyebrow mb-3 opacity-80">Cocktails on tap — 36 lei each</p>
-          <h2 className="display text-[clamp(2.6rem,7.5vw,6.5rem)]">
+          <h2 className="display text-[clamp(2.6rem,7.5vw,6.5rem)] leading-[1]!">
             12 Aperitivo
             <span className="text-outline ml-4">Classics</span>
           </h2>
