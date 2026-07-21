@@ -129,7 +129,7 @@ export default function Footer() {
             </div>
 
             {/* pill cloud: site links */}
-            <div>
+            {/* <div>
               <p className="eyebrow mb-4 opacity-50">Menu</p>
               <div className="flex max-w-xs flex-wrap gap-2.5">
                 {PAGE_LINKS.map((l) => (
@@ -147,7 +147,7 @@ export default function Footer() {
                   Full Menu
                 </a>
               </div>
-            </div>
+            </div> */}
 
             {/* pill cloud: order & wholesale */}
             <div>

@@ -17,23 +17,46 @@ export default function Nav() {
   const time = useBucharestTime();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  /* hide on scroll down, reveal on scroll up */
+  /* hide on scroll down, reveal on scroll up — a CSS var tracking the
+     navbar's live visible height rides the same tween, so anything
+     stacked below it (e.g. the menu quicknav) can stick right at its
+     bottom edge instead of guessing a fixed offset and risking overlap */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const setVisibleHeight = (px: number) => {
+      document.documentElement.style.setProperty("--nav-visible-h", `${px}px`);
+    };
+    setVisibleHeight(el.offsetHeight);
+
+    const ro = new ResizeObserver(() => {
+      if (gsap.getProperty(el, "y") === 0) setVisibleHeight(el.offsetHeight);
+    });
+    ro.observe(el);
+
     const st = ScrollTrigger.create({
       start: "top top",
       end: "max",
       onUpdate: (self) => {
+        const hide = self.direction === 1 && self.scroll() > 200;
+        const targetY = hide ? -(el.offsetHeight + 8) : 0;
         gsap.to(el, {
-          yPercent: self.direction === 1 && self.scroll() > 200 ? -110 : 0,
+          y: targetY,
           duration: 0.4,
           ease: "power3.out",
           overwrite: "auto",
+          onUpdate: () => {
+            const y = gsap.getProperty(el, "y") as number;
+            setVisibleHeight(Math.max(el.offsetHeight + y, 0));
+          },
         });
       },
     });
-    return () => st.kill();
+    return () => {
+      st.kill();
+      ro.disconnect();
+    };
   }, []);
 
   const go = (id: string) => (e: React.MouseEvent) => {

@@ -47,7 +47,8 @@ export default function MenuQuickNav() {
   return (
     <div
       ref={barRef}
-      className="sticky top-0 z-40 border-y border-ink/15 bg-cream/95 backdrop-blur-md"
+      className="sticky z-40 border-y border-ink/15 bg-cream/95 backdrop-blur-md"
+      style={{ top: "var(--nav-visible-h, 0px)" }}
     >
       <nav
         aria-label="Menu categories"
