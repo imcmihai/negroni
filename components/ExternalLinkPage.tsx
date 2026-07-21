@@ -29,21 +29,6 @@ export default function ExternalLinkPage({
 }: ExternalLinkPageProps) {
   return (
     <div>
-      <header className="flex items-center justify-between gap-3 px-4 py-4 md:px-8 md:py-5">
-        <Link href="/" className="group flex items-center gap-2 text-ink">
-          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-red text-[7px] font-bold uppercase tracking-wider text-cream transition-transform duration-500 group-hover:rotate-[360deg]">
-            NEG
-          </span>
-          <span className="display text-xl leading-none">Negroni</span>
-        </Link>
-        <Link
-          href="/"
-          className="text-[13px] font-semibold uppercase tracking-wide opacity-60 transition-opacity hover:opacity-100"
-        >
-          ← Back to site
-        </Link>
-      </header>
-
       <main className="relative z-10 bg-cream shadow-[0_30px_60px_rgba(7,6,13,0.35)]">
         <section className="grid items-center gap-10 px-4 py-12 md:grid-cols-[1fr_1.1fr] md:px-10 md:py-20">
           <div className="order-2 md:order-1">
