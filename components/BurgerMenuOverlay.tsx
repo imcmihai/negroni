@@ -210,10 +210,10 @@ export default function BurgerMenuOverlay({ open, onClose }: BurgerMenuOverlayPr
                   className="group relative flex items-center gap-4 py-[clamp(0.5rem,2vh,1.25rem)] md:gap-5"
                   tabIndex={open ? 0 : -1}
                 >
-                  <span className="eyebrow text-white">
+                  <span className="eyebrow text-white hidden md:inline-block">
                     <StaggerReveal text={`0${i + 1}`} />
                   </span>
-                  <span className="display text-[clamp(2.5rem,6.5vw,1.75rem)] leading-none md:text-[clamp(1.75rem,4vw+3vh,4.3rem)]">
+                  <span className="display text-[clamp(1.5rem,6.5vw,1.75rem)] leading-none md:text-[clamp(1.75rem,4vw+3vh,4.3rem)]">
                     <StaggerReveal text={item.label} />
                   </span>
                   <span
